@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         //get all category
-        $categories = \App\Models\Category::paginate(5);
+        $categories = \App\Models\Category::all();
         return response()->json([
             'message' => 'Success',
             'data' => $categories

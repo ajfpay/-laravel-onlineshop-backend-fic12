@@ -1,6 +1,9 @@
 reports/*
 !reports/.gitkeep
-
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
 ###> laravel ###
 /.vscode
 /.vagrant
