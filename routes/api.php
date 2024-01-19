@@ -27,4 +27,4 @@ Route::post('/logout', [\App\Http\Controllers\Api\AuthController::class, 'logout
 //category
 Route::get('/category', [\App\Http\Controllers\Api\CategoryController::class, 'index']);
 //product
-Route::get('/product', [\App\Http\Controllers\Api\ProductController::class, 'index'])->middleware('auth:sanctum');
+Route::get('/products', [\App\Http\Controllers\Api\ProductController::class, 'index']);
