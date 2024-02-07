@@ -40,6 +40,7 @@ services:
       networks:
         - laravel
 
+
     ### Cron tasks
     supervisord:
       <<: *laravel-template
