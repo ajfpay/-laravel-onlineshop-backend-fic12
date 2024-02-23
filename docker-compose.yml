@@ -47,22 +47,22 @@ services:
       expose: []
       command: ["/usr/bin/supervisord"]
 
-    mysql:
-      image: mysql:${MYSQL_VERSION}
-      platform: linux/arm64
-      # platform: linux/x86_64
-      container_name: ${COMPOSE_PROJECT_NAME}-mysql
-      command: --innodb-use-native-aio=${INNODB_USE_NATIVE_AIO:-1} --sql_mode=${SQL_MODE:-"ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"}
-      environment:
-        MYSQL_ROOT_PASSWORD: secret
-        MYSQL_DATABASE: laravel
-      ports:
-        - "33061:3306"
-      volumes:
-        - ./storage/mysql-data:/var/lib/mysql:delegated
-        - ./docker/dev/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
-      networks:
-        - laravel
+    # mysql:
+    #   image: mysql:${MYSQL_VERSION}
+    #   platform: linux/arm64
+    #   # platform: linux/x86_64
+    #   container_name: ${COMPOSE_PROJECT_NAME}-mysql
+    #   command: --innodb-use-native-aio=${INNODB_USE_NATIVE_AIO:-1} --sql_mode=${SQL_MODE:-"ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"}
+    #   environment:
+    #     MYSQL_ROOT_PASSWORD: secret
+    #     MYSQL_DATABASE: laravel
+    #   ports:
+    #     - "33061:3306"
+    #   volumes:
+    #     - ./storage/mysql-data:/var/lib/mysql:delegated
+    #     - ./docker/dev/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    #   networks:
+    #     - laravel
 
     mail:
       image: axllent/mailpit:latest
