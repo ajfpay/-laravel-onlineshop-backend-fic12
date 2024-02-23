@@ -53,6 +53,3 @@ networks:
   default:
     external: true
     name: proxy_network
-# networks:
-#   laravel:
-#     name: laravel
