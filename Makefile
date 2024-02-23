@@ -62,12 +62,12 @@ else
 	$(ERROR_ONLY_FOR_HOST)
 endif
 
-start: ## Start dev environment
-ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
-	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) docker-compose -f docker-compose.yml $(PROJECT_NAME) up -d
-else
-	$(ERROR_ONLY_FOR_HOST)
-endif
+# start: ## Start dev environment
+# ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
+# 	@HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) WEB_PORT_HTTP=$(WEB_PORT_HTTP) WEB_PORT_SSL=$(WEB_PORT_SSL) XDEBUG_CONFIG=$(XDEBUG_CONFIG) MYSQL_VERSION=$(MYSQL_VERSION) INNODB_USE_NATIVE_AIO=$(INNODB_USE_NATIVE_AIO) SQL_MODE=$(SQL_MODE) docker-compose -f docker-compose.yml $(PROJECT_NAME) up -d
+# else
+# 	$(ERROR_ONLY_FOR_HOST)
+# endif
 
 start-test: ## Start test or continuous integration environment
 ifeq ($(INSIDE_DOCKER_CONTAINER), 0)
