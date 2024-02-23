@@ -33,7 +33,7 @@ services:
       volumes:
         - ./:/var/www/html:cached
       depends_on:
-        - mysql
+        - db-mysql
         - mail
 
     ### Cron tasks
