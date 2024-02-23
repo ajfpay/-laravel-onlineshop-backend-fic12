@@ -17,6 +17,7 @@ services:
       - ./:/var/www/html:ro,cached
     depends_on:
       - laravel
+      - db-mysql
 
   laravel: &laravel-template
     image: ${COMPOSE_PROJECT_NAME}-laravel:latest
