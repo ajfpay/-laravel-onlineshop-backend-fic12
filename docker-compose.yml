@@ -17,7 +17,6 @@ services:
       - ./:/var/www/html:ro,cached
     depends_on:
       - laravel
-      - db-mysql
 
   laravel: &laravel-template
     image: ${COMPOSE_PROJECT_NAME}-laravel:latest
@@ -32,9 +31,15 @@ services:
     container_name: ${COMPOSE_PROJECT_NAME}-laravel
     volumes:
       - ./:/var/www/html:cached
+    environment:
+      - DB_CONNECTION=mysql-nginx-proxy-manager
+      - DB_HOST=mysql-nginx-proxy-manager
+      - DB_PORT=3306
+      - DB_DATABASE=laravel
+      - DB_USERNAME=root
+      - DB_PASSWORD=LoginMai07
     depends_on:
       - mail
-      - db-mysql
 
   ### Cron tasks
   supervisord:
